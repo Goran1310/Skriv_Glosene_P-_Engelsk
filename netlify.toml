@@ -1,0 +1,9 @@
+[build]
+  base = "vocabulary-trainer-web"
+  command = "npm run build"
+  publish = "vocabulary-trainer-web/build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
