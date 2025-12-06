@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Quiz.css';
 
 function Quiz({ onNavigate, vocabulary, username, saveScore }) {
@@ -11,6 +11,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
   const [isCorrect, setIsCorrect] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [quizFinished, setQuizFinished] = useState(false);
+  const inputRef = useRef(null);
 
   const weeks = [...new Set(vocabulary.map(v => v.week))].sort((a, b) => a - b);
 
@@ -45,7 +46,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
   const getHintText = () => {
     if (!questions[currentQuestion]) return '';
     const answer = questions[currentQuestion].answer;
-    return '_'.repeat(answer.length).split('').join(' ');
+    return '_'.repeat(answer.length);
   };
 
   const checkAnswer = () => {
@@ -69,6 +70,13 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
       }
     }, 1500);
   };
+
+  // Focus input field when question changes
+  useEffect(() => {
+    if (quizConfig && !showFeedback && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [currentQuestion, showFeedback, quizConfig]);
 
   const finishQuiz = (lastCorrect) => {
     const finalScore = correctAnswers + (lastCorrect ? 1 : 0);
@@ -149,7 +157,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
 
           <div className="form-group checkbox-group">
             <label>
-              <input type="checkbox" id="randomize-check" defaultChecked />
+              <input type="checkbox" id="randomize-check" />
               Tilfeldig rekkefølge
             </label>
           </div>
@@ -188,20 +196,19 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
           {questions[currentQuestion]?.question}
         </div>
 
-        <div className="hint">
-          {getHintText()}
+        <div className="input-wrapper">
+          <div className="hint-overlay">{getHintText()}</div>
+          <input
+            ref={inputRef}
+            type="text"
+            value={userAnswer}
+            onChange={(e) => setUserAnswer(e.target.value)}
+            onKeyPress={handleKeyPress}
+            className="answer-input"
+            disabled={showFeedback}
+            autoFocus
+          />
         </div>
-
-        <input
-          type="text"
-          value={userAnswer}
-          onChange={(e) => setUserAnswer(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder="Skriv svaret her..."
-          className="answer-input"
-          disabled={showFeedback}
-          autoFocus
-        />
 
         {!showFeedback && (
           <button 

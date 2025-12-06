@@ -1,53 +1,164 @@
 .add-vocabulary {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.add-form {
+.add-vocabulary h1 {
+  text-align: center;
+  color: #4A90E2;
+  margin-bottom: 30px;
+}
+
+.form-container {
   background-color: white;
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
-.form-group {
-  margin-bottom: 20px;
+.week-section {
+  margin-bottom: 30px;
 }
 
-.form-group label {
+.section-label {
   display: block;
-  margin-bottom: 8px;
   font-size: 18px;
   font-weight: bold;
   color: #333;
+  margin-bottom: 12px;
 }
 
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
+.week-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.week-input {
+  width: 120px;
+  padding: 12px 15px;
+  font-size: 20px;
   border: 2px solid #4A90E2;
-  border-radius: 5px;
-  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
 }
 
-.form-group input:focus,
-.form-group select:focus {
+.week-quick-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quick-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.week-btn {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #E8F4F8;
+  color: #4A90E2;
+  border: 2px solid #4A90E2;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.week-btn:hover {
+  background-color: #4A90E2;
+  color: white;
+}
+
+.week-btn.active {
+  background-color: #4A90E2;
+  color: white;
+  box-shadow: 0 2px 6px rgba(74, 144, 226, 0.4);
+}
+
+.words-section {
+  margin-bottom: 25px;
+}
+
+.word-count {
+  float: right;
+  background-color: #50C878;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.format-help {
+  background-color: #FFF9E6;
+  border-left: 4px solid #FFA500;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.format-help strong {
+  color: #333;
+  margin-right: 8px;
+}
+
+.format-help code {
+  background-color: #FFE4B3;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 15px;
+  color: #D97706;
+}
+
+.examples {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.example {
+  background-color: #E8F4F8;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #4A90E2;
+  font-family: monospace;
+}
+
+.words-textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-family: monospace;
+  border: 2px solid #4A90E2;
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.words-textarea:focus {
   outline: none;
   border-color: #50C878;
+  box-shadow: 0 0 0 3px rgba(80, 200, 120, 0.1);
 }
 
 .button-group {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-top: 25px;
 }
 
-.save-button,
-.cancel-button {
+.save-btn,
+.cancel-btn {
   flex: 1;
   padding: 15px;
   font-size: 18px;
@@ -55,50 +166,50 @@
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
 }
 
-.save-button {
+.save-btn {
   background-color: #50C878;
   color: white;
 }
 
-.save-button:hover {
-  opacity: 0.9;
+.save-btn:hover:not(:disabled) {
+  background-color: #45b369;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(80, 200, 120, 0.3);
 }
 
-.save-button:disabled {
+.save-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
-.cancel-button {
+.cancel-btn {
   background-color: #ff6b6b;
   color: white;
 }
 
-.cancel-button:hover {
-  opacity: 0.9;
+.cancel-btn:hover {
+  background-color: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
 }
 
-.success-message {
-  background-color: #d4edda;
-  color: #155724;
-  padding: 15px;
+.back-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #666;
+  color: white;
+  border: none;
   border-radius: 8px;
-  margin-bottom: 20px;
-  text-align: center;
+  cursor: pointer;
   font-weight: bold;
-  border: 2px solid #c3e6cb;
+  transition: background-color 0.3s;
 }
 
-.error-message {
-  background-color: #f8d7da;
-  color: #721c24;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-weight: bold;
-  border: 2px solid #f5c6cb;
+.back-button:hover {
+  background-color: #555;
 }

@@ -4,16 +4,24 @@ import './AddVocabulary.css';
 function AddVocabulary({ onNavigate, vocabulary, saveVocabulary }) {
   const [week, setWeek] = useState('');
   const [words, setWords] = useState('');
+  const [wordCount, setWordCount] = useState(0);
+
+  const handleWordsChange = (e) => {
+    const text = e.target.value;
+    setWords(text);
+    const lines = text.trim().split('\n').filter(line => line.trim());
+    setWordCount(lines.length);
+  };
 
   const handleSave = () => {
     if (!week || !words.trim()) {
-      alert('Please enter a week number and some words! ✍️');
+      alert('Vennligst fyll inn uke og ord! ✍️');
       return;
     }
 
     const weekNum = parseInt(week);
     if (isNaN(weekNum)) {
-      alert('Week must be a number! 🔢');
+      alert('Uke må være et tall! 🔢');
       return;
     }
 
@@ -43,17 +51,20 @@ function AddVocabulary({ onNavigate, vocabulary, saveVocabulary }) {
     }
 
     if (newVocab.length === 0) {
-      alert('No valid words found! ✍️');
+      alert('Ingen gyldige ord funnet! ✍️');
       return;
     }
 
     saveVocabulary([...vocabulary, ...newVocab]);
-    alert(`🎉 Awesome!\n\nAdded ${newVocab.length} words to Week ${weekNum}!`);
+    setWeek('');
+    setWords('');
+    setWordCount(0);
+    alert(`🎉 Perfekt!\n\nLa til ${newVocab.length} ord i uke ${weekNum}!`);
     onNavigate('menu');
   };
 
   const handleCancel = () => {
-    if (words.trim() && !window.confirm('Go back without saving? 🤔')) {
+    if (words.trim() && !window.confirm('Gå tilbake uten å lagre? 🤔')) {
       return;
     }
     onNavigate('menu');
@@ -63,49 +74,76 @@ function AddVocabulary({ onNavigate, vocabulary, saveVocabulary }) {
 
   return (
     <div className="add-vocabulary">
-      <div className="header">
-        <h1>📝 Add New Words 📝</h1>
-      </div>
+      <h1>➕ Legg til nye ord</h1>
 
       <div className="form-container">
-        <div className="week-selection">
-          <h3>Which week? 📅</h3>
-          <input
-            type="number"
-            value={week}
-            onChange={(e) => setWeek(e.target.value)}
-            placeholder="Week number"
-            className="week-input"
-          />
-          {weeks.length > 0 && (
-            <p className="existing-weeks">You have: {weeks.join(', ')}</p>
-          )}
+        <div className="week-section">
+          <label className="section-label">📅 Velg uke</label>
+          <div className="week-input-group">
+            <input
+              type="number"
+              value={week}
+              onChange={(e) => setWeek(e.target.value)}
+              placeholder="Uke nummer"
+              className="week-input"
+              min="1"
+              max="52"
+            />
+            {weeks.length > 0 && (
+              <div className="week-quick-select">
+                <span className="quick-label">Eller velg:</span>
+                {weeks.slice(-5).map(w => (
+                  <button
+                    key={w}
+                    onClick={() => setWeek(w.toString())}
+                    className={`week-btn ${week === w.toString() ? 'active' : ''}`}
+                  >
+                    {w}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
-        <div className="words-input">
-          <h3>Type your words (one per line):</h3>
-          <p className="hint">Format: english word → norwegian ord</p>
+        <div className="words-section">
+          <label className="section-label">
+            ✍️ Skriv ord (ett par per linje)
+            {wordCount > 0 && <span className="word-count">{wordCount} ord</span>}
+          </label>
+          <div className="format-help">
+            <strong>Format:</strong> <code>engelsk → norsk</code>
+            <div className="examples">
+              <div className="example">✓ happy → glad</div>
+              <div className="example">✓ for instance → for eksempel</div>
+              <div className="example">✓ crooked → skeive</div>
+            </div>
+          </div>
           <textarea
             value={words}
-            onChange={(e) => setWords(e.target.value)}
-            placeholder="happy → glad&#10;sad → trist&#10;for instance → for eksempel"
-            rows={12}
+            onChange={handleWordsChange}
+            placeholder="happy → glad
+sad → trist
+for instance → for eksempel"
+            rows={14}
             className="words-textarea"
+            autoFocus
           />
         </div>
 
         <div className="button-group">
-          <button onClick={handleSave} className="save-btn">
-            💾 Save Words
+          <button onClick={handleSave} className="save-btn" disabled={!week || !words.trim()}>
+            💾 Lagre ord
           </button>
           <button onClick={handleCancel} className="cancel-btn">
-            ❌ Cancel
-          </button>
-          <button onClick={() => onNavigate('menu')} className="back-btn">
-            ◀ Back
+            ❌ Avbryt
           </button>
         </div>
       </div>
+
+      <button onClick={() => onNavigate('menu')} className="back-button">
+        ⬅️ Tilbake til meny
+      </button>
     </div>
   );
 }
