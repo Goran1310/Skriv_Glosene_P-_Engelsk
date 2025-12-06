@@ -1,0 +1,77 @@
+.main-menu {
+  min-height: 100vh;
+  background: #E8F4F8;
+  padding: 20px;
+}
+
+.header {
+  background: #4A90E2;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 2.5rem;
+}
+
+.welcome {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.welcome h2 {
+  font-family: Arial, sans-serif;
+  color: #2E5266;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 20px;
+}
+
+.menu-button {
+  padding: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: white;
+}
+
+.menu-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.add-btn { background: #50C878; }
+.view-btn { background: #4A90E2; }
+.quiz-btn { background: #FFB347; }
+.results-btn { background: #FF6B6B; }
+.settings-btn { background: #2E5266; }
+
+.stats-footer {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 2px solid #4A90E2;
+}
+
+.stats-footer p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2C3E50;
+}
