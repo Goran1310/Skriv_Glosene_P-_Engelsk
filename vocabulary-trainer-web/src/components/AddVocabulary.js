@@ -92,7 +92,7 @@ function AddVocabulary({ onNavigate, vocabulary, saveVocabulary }) {
             {weeks.length > 0 && (
               <div className="week-quick-select">
                 <span className="quick-label">Eller velg:</span>
-                {weeks.slice(-5).map(w => (
+                {weeks.slice(-7).map(w => (
                   <button
                     key={w}
                     onClick={() => setWeek(w.toString())}
