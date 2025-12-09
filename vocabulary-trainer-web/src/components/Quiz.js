@@ -58,17 +58,27 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
     
     if (correct) {
       setCorrectAnswers(correctAnswers + 1);
+      // Auto-advance only for correct answers
+      setTimeout(() => {
+        if (currentQuestion < questions.length - 1) {
+          setCurrentQuestion(currentQuestion + 1);
+          setUserAnswer('');
+          setShowFeedback(false);
+        } else {
+          finishQuiz(correct);
+        }
+      }, 1500);
     }
+  };
 
-    setTimeout(() => {
-      if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
-        setUserAnswer('');
-        setShowFeedback(false);
-      } else {
-        finishQuiz(correct);
-      }
-    }, 1500);
+  const moveToNextQuestion = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setUserAnswer('');
+      setShowFeedback(false);
+    } else {
+      finishQuiz(false);
+    }
   };
 
   // Focus input field when question changes
@@ -98,8 +108,14 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && userAnswer.trim() && !showFeedback) {
-      checkAnswer();
+    if (e.key === 'Enter') {
+      if (showFeedback && !isCorrect) {
+        // User pressed Enter after incorrect answer - move to next question
+        moveToNextQuestion();
+      } else if (!showFeedback && userAnswer.trim()) {
+        // User pressed Enter to submit answer
+        checkAnswer();
+      }
     }
   };
 
@@ -231,6 +247,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
               <>
                 <span className="feedback-icon">❌</span>
                 <span>Feil. Riktig svar: {questions[currentQuestion].answer}</span>
+                <div className="continue-hint">Trykk Enter for å fortsette</div>
               </>
             )}
           </div>
