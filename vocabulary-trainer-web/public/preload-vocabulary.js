@@ -70,7 +70,17 @@ const vocabularyData = [
   { week: 48, norwegian: "til og med; sanneleg", english: "positively" },
   { week: 48, norwegian: "takknemleg", english: "grateful" },
   { week: 48, norwegian: "forskjellige", english: "various" },
-  { week: 48, norwegian: "lykkerus", english: "rush of happiness" }
+  { week: 48, norwegian: "lykkerus", english: "rush of happiness" },
+  { week: 50, norwegian: "kledd som", english: "dressed as" },
+  { week: 50, norwegian: "tankar", english: "thoughts" },
+  { week: 50, norwegian: "frustrerande", english: "frustrating" },
+  { week: 50, norwegian: "frykteleg", english: "terribly" },
+  { week: 50, norwegian: "rasande", english: "furious" },
+  { week: 50, norwegian: "antar eg", english: "I suppose" },
+  { week: 50, norwegian: "overtydd", english: "convinced" },
+  { week: 50, norwegian: "justerte", english: "adjusted" },
+  { week: 50, norwegian: "armband", english: "bangles" },
+  { week: 50, norwegian: "gjeld", english: "apply" }
 ];
 
 // Save to localStorage
