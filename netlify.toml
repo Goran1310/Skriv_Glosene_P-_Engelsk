@@ -1,7 +1,7 @@
 [build]
   base = "vocabulary-trainer-web"
   command = "npm run build"
-  publish = "vocabulary-trainer-web/build"
+  publish = "build"
 
 [[redirects]]
   from = "/*"
