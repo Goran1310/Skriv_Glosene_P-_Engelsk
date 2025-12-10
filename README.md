@@ -9,11 +9,13 @@ Norwegian-English vocabulary training web application for kids!
 - **View Words** - Browse vocabulary by week
 - **Results Tracking** - View quiz history and statistics
 - **Settings** - Customize username
-- **Pre-loaded Content** - 70 words across weeks 39, 40, 42, 44, 45, 46, 48
+- **Pre-loaded Content** - 90 words across weeks 39, 40, 42, 44, 45, 46, 48, 49, 50
 
 ## 🚀 Live Demo
 
-Deploy this app on Netlify in minutes!
+**Try it now:** https://effortless-bombolone-a7184d.netlify.app/
+
+Deploy your own version on Netlify in minutes!
 
 ## 💻 Local Development
 
