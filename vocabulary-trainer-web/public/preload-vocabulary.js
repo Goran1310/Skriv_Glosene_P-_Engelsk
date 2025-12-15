@@ -90,7 +90,17 @@ const vocabularyData = [
   { week: 50, norwegian: "overtydd", english: "convinced" },
   { week: 50, norwegian: "justerte", english: "adjusted" },
   { week: 50, norwegian: "armband", english: "bangles" },
-  { week: 50, norwegian: "gjeld", english: "apply" }
+  { week: 50, norwegian: "gjeld", english: "apply" },
+  { week: 51, norwegian: "parykk", english: "wig" },
+  { week: 51, norwegian: "utvist", english: "expelled" },
+  { week: 51, norwegian: "elendig", english: "miserable" },
+  { week: 51, norwegian: "ballkjole", english: "ball gown" },
+  { week: 51, norwegian: "prikkete", english: "polka dot" },
+  { week: 51, norwegian: "forsvarsspillere", english: "defenders" },
+  { week: 51, norwegian: "antrekk", english: "outfits" },
+  { week: 51, norwegian: "skam", english: "disgrace" },
+  { week: 51, norwegian: "lage en pasning", english: "set up a cross" },
+  { week: 51, norwegian: "sette han", english: "tap it into" }
 ];
 
 // Save to localStorage
