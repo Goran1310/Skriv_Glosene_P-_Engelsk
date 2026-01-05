@@ -1,3 +1,51 @@
+# Vocabulary Trainer
+
+Norwegian-English vocabulary learning application with quiz functionality.
+
+**Live App:** https://effortless-bombolone-a7184d.netlify.app/
+
+## 🚀 Quick Deployment
+
+To deploy changes to Netlify, simply run from the parent directory:
+
+```powershell
+.\deploy.ps1
+```
+
+Or with a custom commit message:
+
+```powershell
+.\deploy.ps1 -Message "Added new vocabulary words"
+```
+
+**What it does:**
+1. Builds the React app (`npm run build`)
+2. Commits all changes with timestamp
+3. Pushes to GitHub
+4. Triggers automatic Netlify deployment (1-3 minutes)
+
+## 📝 Adding New Vocabulary
+
+Edit `public/preload-vocabulary.js` to add new words:
+
+```javascript
+{ week: 3, norwegian: "word", english: "translation" }
+```
+
+Then run `.\deploy.ps1` to deploy.
+
+## 🌐 Deployment Setup
+
+The app is automatically deployed to Netlify via GitHub integration:
+- **Repository:** https://github.com/Goran1310/Skriv_Glosene_P-_Engelsk
+- **Netlify Config:** `../netlify.toml`
+- **Build Command:** `npm run build`
+- **Publish Directory:** `build/`
+
+Every push to `main` branch triggers a new deployment automatically.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
