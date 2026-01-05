@@ -100,7 +100,17 @@ const vocabularyData = [
   { week: 51, norwegian: "antrekk", english: "outfits" },
   { week: 51, norwegian: "skam", english: "disgrace" },
   { week: 51, norwegian: "lage en pasning", english: "set up a cross" },
-  { week: 51, norwegian: "sette han", english: "tap it into" }
+  { week: 51, norwegian: "sette han", english: "tap it into" },
+  { week: 2, norwegian: "heimstad for", english: "home to" },
+  { week: 2, norwegian: "sjølv om", english: "although" },
+  { week: 2, norwegian: "vakkert", english: "stunning" },
+  { week: 2, norwegian: "aborigin, urbefolkning", english: "Aboriginal" },
+  { week: 2, norwegian: "straffange", english: "convict" },
+  { week: 2, norwegian: "bad om unnskyldning", english: "apologised" },
+  { week: 2, norwegian: "befolkning", english: "population" },
+  { week: 2, norwegian: "fordriven frå", english: "driven off" },
+  { week: 2, norwegian: "krevje tilbake", english: "claim back" },
+  { week: 2, norwegian: "tettstader, bydelar", english: "townships" }
 ];
 
 // Save to localStorage
