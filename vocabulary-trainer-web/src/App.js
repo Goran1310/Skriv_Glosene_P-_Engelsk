@@ -7,14 +7,34 @@ import Quiz from './components/Quiz';
 import Results from './components/Results';
 import Settings from './components/Settings';
 
+// App version for localStorage management
+const APP_VERSION = "1.2.0";
+
 function App() {
   const [currentScreen, setCurrentScreen] = useState('menu');
   const [username, setUsername] = useState('Student');
   const [vocabulary, setVocabulary] = useState([]);
   const [scores, setScores] = useState([]);
 
-  // Load data from localStorage on mount
+  // Load data from localStorage on mount with version checking
   useEffect(() => {
+    // Check app version and clear old data if version changed
+    const storedVersion = localStorage.getItem('appVersion');
+    
+    if (storedVersion !== APP_VERSION) {
+      console.log(`App version changed from ${storedVersion || 'none'} to ${APP_VERSION}. Clearing old data...`);
+      
+      // Clear old localStorage data (you can migrate instead of removing)
+      localStorage.removeItem('vocabulary');
+      localStorage.removeItem('scores');
+      // Keep username as it's user-specific
+      // localStorage.removeItem('username');
+      
+      // Set new version
+      localStorage.setItem('appVersion', APP_VERSION);
+    }
+    
+    // Load data from localStorage
     const savedVocab = localStorage.getItem('vocabulary');
     const savedScores = localStorage.getItem('scores');
     const savedUsername = localStorage.getItem('username');

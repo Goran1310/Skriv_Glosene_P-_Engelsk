@@ -36,6 +36,69 @@ This is the **single source of truth** for vocabulary data. Do NOT edit `public/
 
 Then run `.\deploy.ps1` to deploy.
 
+## 🔄 LocalStorage Versioning
+
+The app uses **localStorage versioning** to handle data persistence issues when deploying updates.
+
+### Why This Matters
+
+**Problem:** localStorage is persistent by design
+- Browser keeps data until explicitly cleared
+- Deploying new React code doesn't touch existing localStorage keys
+- Service Workers and aggressive caching can cause old data to persist
+- Even hard refresh may not help
+
+**Result:**
+- App updates but old cached/stored data remains
+- Schema changes can cause errors
+- Users may see outdated interface or broken features
+
+### How We Fixed It ✅
+
+The app now checks version on every load:
+
+```javascript
+const APP_VERSION = "1.2.0";
+
+const storedVersion = localStorage.getItem('appVersion');
+
+if (storedVersion !== APP_VERSION) {
+  // Clear old data when app version changes
+  localStorage.removeItem('vocabulary');
+  localStorage.removeItem('scores');
+  localStorage.setItem('appVersion', APP_VERSION);
+}
+```
+
+**What happens:**
+1. App loads and checks stored version
+2. If version differs, old data is cleared
+3. New version number is saved
+4. Fresh start with new app structure
+
+### When to Update Version
+
+Increment `APP_VERSION` in `src/App.js` when you:
+- ✅ Change localStorage data structure
+- ✅ Add/remove localStorage keys
+- ✅ Change vocabulary schema
+- ✅ Deploy breaking changes
+
+**Example:**
+```javascript
+// Before deployment with schema change
+const APP_VERSION = "1.2.0";  // Change to "1.3.0"
+```
+
+Then `.\deploy.ps1` - all users will get fresh data on next visit.
+
+### Data Preserved
+
+- ❌ **Cleared on version change:** vocabulary, scores (app data)
+- ✅ **Preserved:** username (user preference)
+
+You can customize what gets cleared vs. preserved in `App.js` line 25-30.
+
 ## 🌐 Deployment Setup
 
 The app is automatically deployed to Netlify via GitHub integration:
