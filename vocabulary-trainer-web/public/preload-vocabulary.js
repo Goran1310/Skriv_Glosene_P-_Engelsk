@@ -1,7 +1,9 @@
 // Pre-load vocabulary data into localStorage
-// Run this in browser console or add to index.html
+// This file is loaded by index.html
 
-const vocabularyData = [
+// Only load if no vocabulary exists in localStorage
+if (!localStorage.getItem('vocabulary')) {
+  const vocabularyData = [
   { week: 39, norwegian: "kvinne", english: "female" },
   { week: 39, norwegian: "utmerkt", english: "excellent" },
   { week: 39, norwegian: "usemje", english: "disagreement" },
@@ -113,7 +115,8 @@ const vocabularyData = [
   { week: 2, norwegian: "tettstader, bydelar", english: "townships" }
 ];
 
-// Save to localStorage
-localStorage.setItem('vocabulary', JSON.stringify(vocabularyData));
-console.log(`✅ Loaded ${vocabularyData.length} vocabulary words!`);
-console.log('Weeks included:', [...new Set(vocabularyData.map(v => v.week))].sort((a,b) => a-b).join(', '));
+  // Save to localStorage
+  localStorage.setItem('vocabulary', JSON.stringify(vocabularyData));
+  console.log(`✅ Loaded ${vocabularyData.length} vocabulary words!`);
+  console.log('Weeks included:', [...new Set(vocabularyData.map(v => v.week))].sort((a,b) => a-b).join(', '));
+}

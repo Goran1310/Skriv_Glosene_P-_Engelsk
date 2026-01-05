@@ -26,11 +26,13 @@ Or with a custom commit message:
 
 ## 📝 Adding New Vocabulary
 
-Edit `public/preload-vocabulary.js` to add new words:
+**IMPORTANT:** Edit ONLY `public/preload-vocabulary.js` to add new words:
 
 ```javascript
 { week: 3, norwegian: "word", english: "translation" }
 ```
+
+This is the **single source of truth** for vocabulary data. Do NOT edit `public/index.html` directly.
 
 Then run `.\deploy.ps1` to deploy.
 
