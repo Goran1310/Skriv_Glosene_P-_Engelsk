@@ -112,7 +112,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 2, norwegian: "befolkning", english: "population" },
   { week: 2, norwegian: "fordriven frå", english: "driven off" },
   { week: 2, norwegian: "krevje tilbake", english: "claim back" },
-  { week: 2, norwegian: "tettstader, bydelar", english: "townships" }
+  { week: 2, norwegian: "tettstader, bydelar", english: "townships" },
+  { week: 3, norwegian: "hamn", english: "harbour" },
+  { week: 3, norwegian: "i tillegg til", english: "as well as" },
+  { week: 3, norwegian: "heilt sikkert", english: "certainly" },
+  { week: 3, norwegian: "praktfull", english: "magnificent" },
+  { week: 3, norwegian: "kleshengjar", english: "coat hanger" },
+  { week: 3, norwegian: "Offentlegheit", english: "public" },
+  { week: 3, norwegian: "livreddarar", english: "lifeguards" },
+  { week: 3, norwegian: "maneter", english: "jellyfish" },
+  { week: 3, norwegian: "livredningsklubb", english: "life saving club" },
+  { week: 3, norwegian: "patruljerer", english: "patrolling" }
 ];
 
   // Save to localStorage
