@@ -122,7 +122,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 3, norwegian: "livreddarar", english: "lifeguards" },
   { week: 3, norwegian: "maneter", english: "jellyfish" },
   { week: 3, norwegian: "livredningsklubb", english: "life saving club" },
-  { week: 3, norwegian: "patruljerer", english: "patrolling" }
+  { week: 3, norwegian: "patruljerer", english: "patrolling" },
+  { week: 4, norwegian: "tvinga", english: "forced" },
+  { week: 4, norwegian: "overleve", english: "survive" },
+  { week: 4, norwegian: "sjukdom", english: "disease" },
+  { week: 4, norwegian: "samfunn", english: "society" },
+  { week: 4, norwegian: "slå seg ned", english: "settled" },
+  { week: 4, norwegian: "flåte, fleire skip", english: "fleet" },
+  { week: 4, norwegian: "etterkomarar", english: "descendants" },
+  { week: 4, norwegian: "hardt arbeid", english: "hard labour" },
+  { week: 4, norwegian: "morsmål", english: "first language" },
+  { week: 4, norwegian: "fyrverkeri", english: "fireworks" }
 ];
 
   // Save to localStorage
