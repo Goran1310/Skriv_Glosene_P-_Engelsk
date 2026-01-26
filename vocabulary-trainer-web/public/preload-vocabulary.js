@@ -132,7 +132,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 4, norwegian: "etterkomarar", english: "descendants" },
   { week: 4, norwegian: "hardt arbeid", english: "hard labour" },
   { week: 4, norwegian: "morsmål", english: "first language" },
-  { week: 4, norwegian: "fyrverkeri", english: "fireworks" }
+  { week: 4, norwegian: "fyrverkeri", english: "fireworks" },
+  { week: 5, norwegian: "luke", english: "hatchway" },
+  { week: 5, norwegian: "duft, lukt", english: "scent" },
+  { week: 5, norwegian: "justerte", english: "adjusted" },
+  { week: 5, norwegian: "hard", english: "harsh" },
+  { week: 5, norwegian: "øyde", english: "barren" },
+  { week: 5, norwegian: "alt som var feil", english: "wrongness" },
+  { week: 5, norwegian: "brekte", english: "bleated" },
+  { week: 5, norwegian: "busetting", english: "settlement" },
+  { week: 5, norwegian: "utedo", english: "privy holes" },
+  { week: 5, norwegian: "altfor levande", english: "overly vivid" }
 ];
 
   // Save to localStorage
