@@ -1,6 +1,13 @@
 # Vocabulary Trainer 
 ## Add new on this location
-C:\Users\goran.lovincic\source\repos\Skriv_Glosene_På_Engelsk\vocabulary-trainer-web\public\preload-vocabulary.js
+
+
+
+
+# C:\Users\goran.lovincic\source\repos\Skriv_Glosene_På_Engelsk\vocabulary-trainer-web\public\preload-vocabulary.js
+
+
+
 
 Norwegian-English vocabulary learning application with quiz functionality.
 
