@@ -149,14 +149,14 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 6, norwegian: "ligg i", english: "is located in" },
   { week: 6, norwegian: "trussel", english: "threat" },
   { week: 6, norwegian: "forureining", english: "pollution" },
-  { week: 6, norwegian: "fornye", english: "recovery" },
-  { week: 6, norwegian: "mat", english: "food" },  
-  { week: 6, norwegian: "ete", english: "eat" },
-  { week: 6, norwegian: "lage mat", english: "cook" },
-  { week: 6, norwegian: "oppskrifter", english: "recipes" },
-  { week: 6, norwegian: "vanskeleg", english: "hard" },
-  { week: 6, norwegian: "sliten", english: "tired" },
-  { week: 6, norwegian: "jobbe", english: "work" }  
+  { week: 6, norwegian: "fornye", english: "recover" }
+  // { week: 6, norwegian: "mat", english: "food" },  
+  // { week: 6, norwegian: "ete", english: "eat" },
+  // { week: 6, norwegian: "lage mat", english: "cook" },
+  // { week: 6, norwegian: "oppskrifter", english: "recipes" },
+  // { week: 6, norwegian: "vanskeleg", english: "hard" },
+  // { week: 6, norwegian: "sliten", english: "tired" },
+  // { week: 6, norwegian: "jobbe", english: "work" }  
 
 ];
 
