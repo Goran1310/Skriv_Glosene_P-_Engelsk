@@ -149,7 +149,7 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 6, norwegian: "ligg i", english: "is located in" },
   { week: 6, norwegian: "trussel", english: "threat" },
   { week: 6, norwegian: "forureining", english: "pollution" },
-  { week: 6, norwegian: "fornye", english: "recover" }
+  { week: 6, norwegian: "fornye", english: "recover" },
   // { week: 6, norwegian: "mat", english: "food" },  
   // { week: 6, norwegian: "ete", english: "eat" },
   // { week: 6, norwegian: "lage mat", english: "cook" },
@@ -157,7 +157,13 @@ if (!localStorage.getItem('vocabulary')) {
   // { week: 6, norwegian: "vanskeleg", english: "hard" },
   // { week: 6, norwegian: "sliten", english: "tired" },
   // { week: 6, norwegian: "jobbe", english: "work" }  
-
+  { week: 7, norwegian: "hovudstad", english: "capital city" },
+  { week: 7, norwegian: "befolkning", english: "population" },
+  { week: 7, norwegian: "språk", english: "language" },
+  { week: 7, norwegian: "overalt", english: "everywhere" }, 
+  { week: 7, norwegian: "minne", english: "memories" },
+  { week: 7, norwegian: "hav", english: "ocean" },
+  { week: 7, norwegian: "kjem til gode", english: "benefits" }
 ];
 
   // Save to localStorage
