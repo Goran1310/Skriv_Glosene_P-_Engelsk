@@ -163,7 +163,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 7, norwegian: "overalt", english: "everywhere" }, 
   { week: 7, norwegian: "minne", english: "memories" },
   { week: 7, norwegian: "hav", english: "ocean" },
-  { week: 7, norwegian: "kjem til gode", english: "benefits" }
+  { week: 7, norwegian: "kjem til gode", english: "benefits" },
+  { week: 9, norwegian: "for eksempel", english: "for instance" },
+  { week: 9, norwegian: "kommuniserer", english: "communicate" },
+  { week: 9, norwegian: "akkurat", english: "exactly" },
+  { week: 9, norwegian: "offisielt", english: "official" },
+  { week: 9, norwegian: "utvikla", english: "developed" },
+  { week: 9, norwegian: "handla", english: "traded" },
+  { week: 9, norwegian: "dekt", english: "covered" },
+  { week: 9, norwegian: "uavhengig", english: "independent" },
+  { week: 9, norwegian: "såg på seg sjølv som", english: "considered herself" },
+  { week: 9, norwegian: "herskar", english: "ruler" }
 ];
 
   // Save to localStorage
