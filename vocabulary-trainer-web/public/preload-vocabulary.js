@@ -173,7 +173,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 9, norwegian: "dekt", english: "covered" },
   { week: 9, norwegian: "uavhengig", english: "independent" },
   { week: 9, norwegian: "såg på seg sjølv som", english: "considered herself" },
-  { week: 9, norwegian: "herskar", english: "ruler" }
+  { week: 9, norwegian: "herskar", english: "ruler" },
+  { week: 10, norwegian: "ingen", english: "no one"},
+  { week: 10, norwegian: "forresten", english: "by the way" },
+  { week: 10, norwegian: "fornøyelsespark", english: "theme park" },
+  { week: 10, norwegian: "regjeringa", english: "government" },
+  { week: 10, norwegian: "forsvinn", english: "disappear" },
+  { week: 10, norwegian: "siden, fordi", english: "since" },
+  { week: 10, norwegian: "heilt", english: "completely" },
+  { week: 10, norwegian: "no for tida", english: "these days" },
+  { week: 10, norwegian: "virtuell", english: "virtual" },
+  { week: 10, norwegian: "sukkar", english: "sighs" }
 ];
 
   // Save to localStorage
