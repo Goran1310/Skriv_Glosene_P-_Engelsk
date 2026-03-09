@@ -183,7 +183,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 10, norwegian: "heilt", english: "completely" },
   { week: 10, norwegian: "no for tida", english: "these days" },
   { week: 10, norwegian: "virtuell", english: "virtual" },
-  { week: 10, norwegian: "sukkar", english: "sighs" }
+  { week: 10, norwegian: "sukkar", english: "sighs" },
+  { week: 11, norwegian: "verktøy", english: "tools" },
+  { week: 11, norwegian: "utålmodig", english: "impatient" },
+  { week: 11, norwegian: "sunn", english: "healthy" },
+  { week: 11, norwegian: "irritert", english: "annoyed" },
+  { week: 11, norwegian: "intelligent, evnerik", english: "bright" },
+  { week: 11, norwegian: "høyrsel- og synshemma", english: "deaf-blind" },
+  { week: 11, norwegian: "betydning", english: "meaning" },
+  { week: 11, norwegian: "brønn", english: "well" },
+  { week: 11, norwegian: "lær", english: "leather" },
+  { week: 11, norwegian: "hesteutstyr", english: "horse tack" }
 ];
 
   // Save to localStorage
