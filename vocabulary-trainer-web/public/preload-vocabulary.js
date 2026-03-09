@@ -184,7 +184,7 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 10, norwegian: "no for tida", english: "these days" },
   { week: 10, norwegian: "virtuell", english: "virtual" },
   { week: 10, norwegian: "sukkar", english: "sighs" },
-  { week: 11, norwegian: "verktøy", english: "tools" },
+  { week: 11, norwegian: "verktøy", english: "tool" },
   { week: 11, norwegian: "utålmodig", english: "impatient" },
   { week: 11, norwegian: "sunn", english: "healthy" },
   { week: 11, norwegian: "irritert", english: "annoyed" },
