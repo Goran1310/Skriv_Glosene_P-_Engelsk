@@ -193,7 +193,18 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 11, norwegian: "betydning", english: "meaning" },
   { week: 11, norwegian: "brønn", english: "well" },
   { week: 11, norwegian: "lær", english: "leather" },
-  { week: 11, norwegian: "hesteutstyr", english: "horse tack" }
+  { week: 11, norwegian: "hesteutstyr", english: "horse tack" },
+  { week: 12, norwegian: "respektløyse", english: "disrespect" },
+  { week: 12, norwegian: "helsing", english: "greeting" },
+  { week: 12, norwegian: "for det meste", english: "mainly" },
+  { week: 12, norwegian: "anledningar", english: "occasions" },
+  { week: 12, norwegian: "unngå", english: "avoid" },
+  { week: 12, norwegian: "bli sett på som", english: "considered" },
+  { week: 12, norwegian: "tidlegare", english: "former" },
+  { week: 12, norwegian: "styrte", english: "ruled" },
+  { week: 12, norwegian: "utvikla seg", english: "evolved" },
+  { week: 12, norwegian: "grufull", english: "cruel" }
+
 ];
 
   // Save to localStorage
