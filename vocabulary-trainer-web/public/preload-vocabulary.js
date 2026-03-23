@@ -203,7 +203,18 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 12, norwegian: "tidlegare", english: "former" },
   { week: 12, norwegian: "styrte", english: "ruled" },
   { week: 12, norwegian: "utvikla seg", english: "evolved" },
-  { week: 12, norwegian: "grufull", english: "cruel" }
+  { week: 12, norwegian: "grufull", english: "cruel" },
+  { week: 12, norwegian: "grufull", english: "cruel" },
+  { week: 13, norwegian: "bortskjemt", english: "spoiled" },
+  { week: 13, norwegian: "uvitande", english: "ignorant" },
+  { week: 13, norwegian: "svoltene", english: "starving" },
+  { week: 13, norwegian: "ønskte seg", english: "desired" },
+  { week: 13, norwegian: "ofre", english: "sacrifice" },
+  { week: 13, norwegian: "gjespande", english: "yawning" },
+  { week: 13, norwegian: "sikkeleg", english: "decent" },
+  { week: 13, norwegian: "hoppa på", english: "pounced" },
+  { week: 13, norwegian: "mumla", english: "mumbled" },
+  { week: 13, norwegian: "uttale", english: "prononunce" }
 
 ];
 
