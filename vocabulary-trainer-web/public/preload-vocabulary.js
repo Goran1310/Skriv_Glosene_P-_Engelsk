@@ -214,7 +214,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 13, norwegian: "sikkeleg", english: "decent" },
   { week: 13, norwegian: "hoppa på", english: "pounced" },
   { week: 13, norwegian: "mumla", english: "mumbled" },
-  { week: 13, norwegian: "uttale", english: "prononunce" }
+  { week: 13, norwegian: "uttale", english: "prononunce" },
+  { week: 15, norwegian: "påverke", english: "influence" },
+  { week: 15, norwegian: "hustak", english: "rooftop" },
+  { week: 15, norwegian: "grunnleggaren", english: "the founder" },
+  { week: 15, norwegian: "auka", english: "increased" },
+  { week: 15, norwegian: "utbytte", english: "profit" },
+  { week: 15, norwegian: "avling", english: "crop" },
+  { week: 15, norwegian: "etablert", english: "established" },
+  { week: 15, norwegian: "stammar frå", english: "conquered" },
+  { week: 15, norwegian: "om", english: "whether" },
+  { week: 15, norwegian: "kjem til gode", english: "benefits" }
 
 ];
 
