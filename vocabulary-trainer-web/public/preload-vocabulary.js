@@ -216,15 +216,18 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 13, norwegian: "mumla", english: "mumbled" },
   { week: 13, norwegian: "uttale", english: "prononunce" },
   { week: 15, norwegian: "påverke", english: "influence" },
-  { week: 15, norwegian: "hustak", english: "rooftop" },
-  { week: 15, norwegian: "grunnleggaren", english: "the founder" },
-  { week: 15, norwegian: "auka", english: "increased" },
-  { week: 15, norwegian: "utbytte", english: "profit" },
-  { week: 15, norwegian: "avling", english: "crop" },
-  { week: 15, norwegian: "etablert", english: "established" },
-  { week: 15, norwegian: "stammar frå", english: "conquered" },
-  { week: 15, norwegian: "om", english: "whether" },
-  { week: 15, norwegian: "kjem til gode", english: "benefits" }
+  { week: 16, norwegian: "kul", english: "lump" },
+  { week: 16, norwegian: "oppdaging", english: "discovery" },
+  { week: 16, norwegian: "gi betennelse", english: "infect" },
+  { week: 16, norwegian: "fødsel", english: "childbirth" },
+  { week: 16, norwegian: "laboratorium", english: "laboratory" },
+  { week: 16, norwegian: "bakterielle infeksjonar", english: "bacterial infections" },
+  { week: 16, norwegian: "kuler", english: "bullets" },
+  { week: 16, norwegian: "klynger", english: "clumps" },
+  { week: 16, norwegian: "koloniar", english: "colonies" },
+  { week: 16, norwegian: "behandle", english: "treat" }
+ 
+
 
 ];
 
