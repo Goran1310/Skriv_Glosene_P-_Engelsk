@@ -225,8 +225,18 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 16, norwegian: "kuler", english: "bullets" },
   { week: 16, norwegian: "klynger", english: "clumps" },
   { week: 16, norwegian: "koloniar", english: "colonies" },
-  { week: 16, norwegian: "behandle", english: "treat" }
- 
+  { week: 16, norwegian: "behandle", english: "treat" },
+  
+  { week: 18, norwegian: "opp ned", english: "upside down" },
+  { week: 18, norwegian: "oppdateringar", english: "updates" },
+  { week: 18, norwegian: "på augneblinken", english: "instant" },
+  { week: 18, norwegian: "fasttelefon", english: "landline" },
+  { week: 18, norwegian: "komplisert", english: "complicated" },
+  { week: 18, norwegian: "rute", english: "route" },
+  { week: 18, norwegian: "veldig viktig", english: "essential" },
+  { week: 18, norwegian: "reisebyrå", english: "travel agency" },
+  { week: 18, norwegian: "daglege behov", english: "daily needs" },
+  { week: 18, norwegian: "tilgjengeleg", english: "available" }
 
 
 ];
