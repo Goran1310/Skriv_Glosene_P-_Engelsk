@@ -226,7 +226,6 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 16, norwegian: "klynger", english: "clumps" },
   { week: 16, norwegian: "koloniar", english: "colonies" },
   { week: 16, norwegian: "behandle", english: "treat" },
-  
   { week: 18, norwegian: "opp ned", english: "upside down" },
   { week: 18, norwegian: "oppdateringar", english: "updates" },
   { week: 18, norwegian: "på augneblinken", english: "instant" },
@@ -236,9 +235,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 18, norwegian: "veldig viktig", english: "essential" },
   { week: 18, norwegian: "reisebyrå", english: "travel agency" },
   { week: 18, norwegian: "daglege behov", english: "daily needs" },
-  { week: 18, norwegian: "tilgjengeleg", english: "available" }
-
-
+  { week: 18, norwegian: "tilgjengeleg", english: "available" },  
+  { week: 19, norwegian: "ganske", english: "quite" },
+  { week: 19, norwegian: "dele", english: "share" },
+  { week: 19, norwegian: "verdsborgarar", english: "global citizens" },
+  { week: 19, norwegian: "høfleg", english: "polite" },
+  { week: 19, norwegian: "ansvarleg", english: "responsible" },
+  { week: 19, norwegian: "misforstått", english: "misunderstood" },
+  { week: 19, norwegian: "ubehageleg", english: "uncomfortable" },
+  { week: 19, norwegian: "behandle", english: "treat" },
+  { week: 19, norwegian: "forsiktig", english: "careful" },
+  { week: 19, norwegian: "truande", english: "threatening" }
 ];
 
   // Save to localStorage
