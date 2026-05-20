@@ -245,7 +245,17 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 19, norwegian: "ubehageleg", english: "uncomfortable" },
   { week: 19, norwegian: "behandle", english: "treat" },
   { week: 19, norwegian: "forsiktig", english: "careful" },
-  { week: 19, norwegian: "truande", english: "threatening" }
+  { week: 19, norwegian: "truande", english: "threatening" },
+  { week: 21, norwegian: "pust", english: "breath" },
+  { week: 21, norwegian: "fordøying", english: "digesting" },
+  { week: 21, norwegian: "tygge", english: "chew" },
+  { week: 21, norwegian: "lårbein", english: "femur" },
+  { week: 21, norwegian: "bekken", english: "pelvis" },
+  { week: 21, norwegian: "handledd", english: "wrist" },
+  { week: 21, norwegian: "lår", english: "thigh" },
+  { week: 21, norwegian: "legg", english: "calf" },
+  { week: 21, norwegian: "innvolar", english: "intestines" },
+  { week: 21, norwegian: "ryggrad", english: "spine" }
 ];
 
   // Save to localStorage
