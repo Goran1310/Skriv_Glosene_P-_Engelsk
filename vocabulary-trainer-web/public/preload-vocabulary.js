@@ -255,7 +255,18 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 21, norwegian: "lår", english: "thigh" },
   { week: 21, norwegian: "legg", english: "calf" },
   { week: 21, norwegian: "innvolar", english: "intestines" },
-  { week: 21, norwegian: "ryggrad", english: "spine" }
+  { week: 21, norwegian: "ryggrad", english: "spine" },
+  { week: 22, norwegian: "ete sunt", english: "eat healthily" },
+  { week: 22, norwegian: "herleg, deilig", english: "delicious" },
+  { week: 22, norwegian: "hjelpe", english: "assist" },
+  { week: 22, norwegian: "tilsett", english: "add" },
+  { week: 22, norwegian: "av og til", english: "occasionally" },
+  { week: 22, norwegian: "fortsett å røre", english: "keep stirring" },
+  { week: 22, norwegian: "komfyr", english: "stove" },
+  { week: 22, norwegian: "kok", english: "boil" },
+  { week: 22, norwegian: "dekt", english: "coated" },
+  { week: 22, norwegian: "klumpar", english: "clumps" },
+
 ];
 
   // Save to localStorage
