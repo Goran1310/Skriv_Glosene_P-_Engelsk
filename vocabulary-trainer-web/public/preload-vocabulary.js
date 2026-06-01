@@ -266,7 +266,16 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 22, norwegian: "kok", english: "boil" },
   { week: 22, norwegian: "dekt", english: "coated" },
   { week: 22, norwegian: "klumpar", english: "clumps" },
-
+  { week: 23, norwegian: "slapp av", english: "relax" },
+  { week: 23, norwegian: "fortsett", english: "continue" },
+  { week: 23, norwegian: "lår", english: "thighs" },
+  { week: 23, norwegian: "hake", english: "chin" },
+  { week: 23, norwegian: "oppfrisk", english: "refresh" },
+  { week: 23, norwegian: "kviler", english: "rests" },
+  { week: 23, norwegian: "gjennom", english: "through" },
+  { week: 23, norwegian: "puste", english: "breathe" },
+  { week: 23, norwegian: "varme", english: "warmth" },
+  { week: 23, norwegian: "panne", english: "forehead" },
 ];
 
   // Save to localStorage
