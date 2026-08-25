@@ -7,47 +7,67 @@ import Quiz from './components/Quiz';
 import Results from './components/Results';
 import Settings from './components/Settings';
 
-// App version for localStorage management
-const APP_VERSION = "1.2.0";
+const GRADES = [4, 5, 6, 7, 8, 9, 10];
+const DEFAULT_GRADE = 7;
+const LANGUAGES = [
+  { id: 'english', label: 'Engelsk' },
+  { id: 'french', label: 'Fransk' },
+];
+const DEFAULT_LANGUAGE = 'english';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('menu');
   const [username, setUsername] = useState('Student');
+  const [selectedGrade, setSelectedGrade] = useState(DEFAULT_GRADE);
+  const [selectedLanguage, setSelectedLanguage] = useState(DEFAULT_LANGUAGE);
   const [vocabulary, setVocabulary] = useState([]);
   const [scores, setScores] = useState([]);
 
-  // Load data from localStorage on mount with version checking
+  // Load data from localStorage on mount (preload-vocabulary.js already merged any new words in)
   useEffect(() => {
-    // Check app version and clear old data if version changed
-    const storedVersion = localStorage.getItem('appVersion');
-    
-    if (storedVersion !== APP_VERSION) {
-      console.log(`App version changed from ${storedVersion || 'none'} to ${APP_VERSION}. Clearing old data...`);
-      
-      // Clear old localStorage data (you can migrate instead of removing)
-      localStorage.removeItem('vocabulary');
-      localStorage.removeItem('scores');
-      // Keep username as it's user-specific
-      // localStorage.removeItem('username');
-      
-      // Set new version
-      localStorage.setItem('appVersion', APP_VERSION);
+    const savedGrade = parseInt(localStorage.getItem('selectedGrade'), 10);
+    const grade = GRADES.includes(savedGrade) ? savedGrade : DEFAULT_GRADE;
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    const language = LANGUAGES.some(l => l.id === savedLanguage) ? savedLanguage : DEFAULT_LANGUAGE;
+
+    // One-time migration: pre-language versions stored data under 'vocabulary_grade{N}' (English only)
+    const legacyKey = `vocabulary_grade${grade}`;
+    const englishKey = `vocabulary_grade${grade}_english`;
+    if (localStorage.getItem(legacyKey) && !localStorage.getItem(englishKey)) {
+      localStorage.setItem(englishKey, localStorage.getItem(legacyKey));
     }
-    
-    // Load data from localStorage
-    const savedVocab = localStorage.getItem('vocabulary');
+
+    const savedVocab = localStorage.getItem(`vocabulary_grade${grade}_${language}`);
     const savedScores = localStorage.getItem('scores');
     const savedUsername = localStorage.getItem('username');
-    
+
+    setSelectedGrade(grade);
+    setSelectedLanguage(language);
     if (savedVocab) setVocabulary(JSON.parse(savedVocab));
     if (savedScores) setScores(JSON.parse(savedScores));
     if (savedUsername) setUsername(savedUsername);
   }, []);
 
+  // Switch grade: persist the choice and load that grade's vocabulary (cached, no need to reselect)
+  const selectGrade = (grade) => {
+    setSelectedGrade(grade);
+    localStorage.setItem('selectedGrade', grade);
+    const savedVocab = localStorage.getItem(`vocabulary_grade${grade}_${selectedLanguage}`);
+    setVocabulary(savedVocab ? JSON.parse(savedVocab) : []);
+  };
+
+  // Switch language: persist the choice and load that language's vocabulary (cached, no need to reselect)
+  const selectLanguage = (language) => {
+    setSelectedLanguage(language);
+    localStorage.setItem('selectedLanguage', language);
+    const savedVocab = localStorage.getItem(`vocabulary_grade${selectedGrade}_${language}`);
+    setVocabulary(savedVocab ? JSON.parse(savedVocab) : []);
+  };
+
   // Save vocabulary to localStorage
   const saveVocabulary = (newVocab) => {
     setVocabulary(newVocab);
-    localStorage.setItem('vocabulary', JSON.stringify(newVocab));
+    localStorage.setItem(`vocabulary_grade${selectedGrade}_${selectedLanguage}`, JSON.stringify(newVocab));
   };
 
   // Save scores to localStorage
@@ -66,13 +86,26 @@ function App() {
   const renderScreen = () => {
     switch (currentScreen) {
       case 'menu':
-        return <MainMenu onNavigate={setCurrentScreen} vocabulary={vocabulary} />;
+        return (
+          <MainMenu
+            onNavigate={setCurrentScreen}
+            vocabulary={vocabulary}
+            grades={GRADES}
+            selectedGrade={selectedGrade}
+            onGradeChange={selectGrade}
+            languages={LANGUAGES}
+            selectedLanguage={selectedLanguage}
+            onLanguageChange={selectLanguage}
+          />
+        );
       case 'add':
         return (
           <AddVocabulary
             onNavigate={setCurrentScreen}
             vocabulary={vocabulary}
             saveVocabulary={saveVocabulary}
+            language={selectedLanguage}
+            languageLabel={LANGUAGES.find(l => l.id === selectedLanguage).label}
           />
         );
       case 'view':
@@ -80,6 +113,8 @@ function App() {
           <ViewVocabulary
             onNavigate={setCurrentScreen}
             vocabulary={vocabulary}
+            language={selectedLanguage}
+            languageLabel={LANGUAGES.find(l => l.id === selectedLanguage).label}
           />
         );
       case 'quiz':
@@ -89,6 +124,8 @@ function App() {
             vocabulary={vocabulary}
             username={username}
             saveScore={saveScore}
+            language={selectedLanguage}
+            languageLabel={LANGUAGES.find(l => l.id === selectedLanguage).label}
           />
         );
       case 'results':
@@ -108,7 +145,18 @@ function App() {
           />
         );
       default:
-        return <MainMenu onNavigate={setCurrentScreen} vocabulary={vocabulary} />;
+        return (
+          <MainMenu
+            onNavigate={setCurrentScreen}
+            vocabulary={vocabulary}
+            grades={GRADES}
+            selectedGrade={selectedGrade}
+            onGradeChange={selectGrade}
+            languages={LANGUAGES}
+            selectedLanguage={selectedLanguage}
+            onLanguageChange={selectLanguage}
+          />
+        );
     }
   };
 

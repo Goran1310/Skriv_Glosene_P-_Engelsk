@@ -1,7 +1,7 @@
 import React from 'react';
 import './MainMenu.css';
 
-function MainMenu({ onNavigate, vocabulary }) {
+function MainMenu({ onNavigate, vocabulary, grades, selectedGrade, onGradeChange, languages, selectedLanguage, onLanguageChange }) {
   const weeks = [...new Set(vocabulary.map(v => v.week))].sort((a, b) => a - b);
   const totalWords = vocabulary.length;
 
@@ -13,6 +13,32 @@ function MainMenu({ onNavigate, vocabulary }) {
 
       <div className="welcome">
         <h2>Welcome! 👋</h2>
+      </div>
+
+      <div className="grade-selector">
+        <label htmlFor="grade-select">🎓 Klasse:</label>
+        <select
+          id="grade-select"
+          value={selectedGrade}
+          onChange={(e) => onGradeChange(parseInt(e.target.value, 10))}
+        >
+          {grades.map(grade => (
+            <option key={grade} value={grade}>{grade}. klasse</option>
+          ))}
+        </select>
+      </div>
+
+      <div className="grade-selector">
+        <label htmlFor="language-select">🗣️ Språk:</label>
+        <select
+          id="language-select"
+          value={selectedLanguage}
+          onChange={(e) => onLanguageChange(e.target.value)}
+        >
+          {languages.map(lang => (
+            <option key={lang.id} value={lang.id}>{lang.label}</option>
+          ))}
+        </select>
       </div>
 
       <div className="button-grid">

@@ -1,9 +1,36 @@
-// Pre-load vocabulary data into localStorage
-// This file is loaded by index.html
+// Pre-load vocabulary data into localStorage, merged per grade+language so weekly updates
+// don't require deleting existing data or a hard refresh
 
-// Only load if no vocabulary exists in localStorage
-if (!localStorage.getItem('vocabulary')) {
-  const vocabularyData = [
+// One-time migration: pre-language versions stored data under 'vocabulary_grade{N}' (English only)
+for (const grade of [4, 5, 6, 7, 8, 9, 10]) {
+  const legacyKey = `vocabulary_grade${grade}`;
+  const englishKey = `${legacyKey}_english`;
+  if (localStorage.getItem(legacyKey) && !localStorage.getItem(englishKey)) {
+    localStorage.setItem(englishKey, localStorage.getItem(legacyKey));
+  }
+}
+
+const vocabularyByGrade = {
+  4: {
+    english: [
+  { week: 35, norwegian: "lag", english: "team" },
+  { week: 35, norwegian: "øver", english: "practise" },
+  { week: 35, norwegian: "ein gong", english: "once" },
+  { week: 35, norwegian: "roper", english: "shout" },
+  { week: 35, norwegian: "to gonger", english: "twice" },
+    ],
+    french: [
+  { week: 35, norwegian: "lag", french: "équipe" },
+  { week: 35, norwegian: "øver", french: "s'entraîner" },
+  { week: 35, norwegian: "ein gong", french: "une fois" },
+  { week: 35, norwegian: "roper", french: "crier" },
+  { week: 35, norwegian: "to gonger", french: "deux fois" },
+    ],
+  },
+  5: { english: [], french: [] },
+  6: { english: [], french: [] },
+  7: {
+    english: [
   { week: 39, norwegian: "kvinne", english: "female" },
   { week: 39, norwegian: "utmerkt", english: "excellent" },
   { week: 39, norwegian: "usemje", english: "disagreement" },
@@ -276,10 +303,48 @@ if (!localStorage.getItem('vocabulary')) {
   { week: 23, norwegian: "puste", english: "breathe" },
   { week: 23, norwegian: "varme", english: "warmth" },
   { week: 23, norwegian: "panne", english: "forehead" },
-];
+    ],
+    french: [],
+  },
+  8: {
+    english: [],
+    french: [
+  { week: 35, norwegian: "ein", french: "un" },
+  { week: 35, norwegian: "to", french: "deux" },
+  { week: 35, norwegian: "tre", french: "trois" },
+  { week: 35, norwegian: "fire", french: "quatre" },
+  { week: 35, norwegian: "fem", french: "cinq" },
+  { week: 35, norwegian: "seks", french: "six" },
+  { week: 35, norwegian: "sju", french: "sept" },
+  { week: 35, norwegian: "åtte", french: "huit" },
+  { week: 35, norwegian: "ni", french: "neuf" },
+  { week: 35, norwegian: "ti", french: "dix" },
+  { week: 35, norwegian: "elleve", french: "onze" },
+  { week: 35, norwegian: "tolv", french: "douze" },
+  { week: 35, norwegian: "tretten", french: "treize" },
+  { week: 35, norwegian: "fjorten", french: "quatorze" },
+  { week: 35, norwegian: "femten", french: "quinze" },
+    ],
+  },
+  9: { english: [], french: [] },
+  10: { english: [], french: [] },
+};
 
-  // Save to localStorage
-  localStorage.setItem('vocabulary', JSON.stringify(vocabularyData));
-  console.log(`✅ Loaded ${vocabularyData.length} vocabulary words!`);
-  console.log('Weeks included:', [...new Set(vocabularyData.map(v => v.week))].sort((a,b) => a-b).join(', '));
-}
+// Merge new/changed entries into each grade+language's storage without touching user-added words or scores
+Object.keys(vocabularyByGrade).forEach((grade) => {
+  Object.keys(vocabularyByGrade[grade]).forEach((lang) => {
+    const newData = vocabularyByGrade[grade][lang];
+    if (newData.length === 0) return;
+
+    const storageKey = `vocabulary_grade${grade}_${lang}`;
+    const existing = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    const existingKeys = new Set(existing.map(v => `${v.week}|${v.norwegian}|${v[lang]}`));
+    const newItems = newData.filter(v => !existingKeys.has(`${v.week}|${v.norwegian}|${v[lang]}`));
+
+    if (newItems.length > 0) {
+      const merged = [...existing, ...newItems];
+      localStorage.setItem(storageKey, JSON.stringify(merged));
+      console.log(`✅ Grade ${grade} (${lang}): added ${newItems.length} new word(s), total ${merged.length}`);
+    }
+  });
+});

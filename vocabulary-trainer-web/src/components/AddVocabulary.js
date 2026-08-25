@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AddVocabulary.css';
 
-function AddVocabulary({ onNavigate, vocabulary, saveVocabulary }) {
+function AddVocabulary({ onNavigate, vocabulary, saveVocabulary, language, languageLabel }) {
   const [week, setWeek] = useState('');
   const [words, setWords] = useState('');
   const [wordCount, setWordCount] = useState(0);
@@ -39,14 +39,14 @@ function AddVocabulary({ onNavigate, vocabulary, saveVocabulary }) {
       } else if (line.includes('  ')) {
         parts = line.split(/\s{2,}/);
       } else {
-        alert(`Line looks weird:\n"${line}"\n\nUse: english → norwegian`);
+        alert(`Line looks weird:\n"${line}"\n\nUse: ${languageLabel.toLowerCase()} → norsk`);
         return;
       }
 
       if (parts.length === 2) {
-        const english = parts[0].trim();
+        const foreignWord = parts[0].trim();
         const norwegian = parts[1].trim();
-        newVocab.push({ week: weekNum, english, norwegian });
+        newVocab.push({ week: weekNum, [language]: foreignWord, norwegian });
       }
     }
 
@@ -112,7 +112,7 @@ function AddVocabulary({ onNavigate, vocabulary, saveVocabulary }) {
             {wordCount > 0 && <span className="word-count">{wordCount} ord</span>}
           </label>
           <div className="format-help">
-            <strong>Format:</strong> <code>engelsk → norsk</code>
+            <strong>Format:</strong> <code>{languageLabel.toLowerCase()} → norsk</code>
             <div className="examples">
               <div className="example">✓ happy → glad</div>
               <div className="example">✓ for instance → for eksempel</div>

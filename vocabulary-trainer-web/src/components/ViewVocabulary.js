@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ViewVocabulary.css';
 
-function ViewVocabulary({ onNavigate, vocabulary, deleteVocabulary }) {
+function ViewVocabulary({ onNavigate, vocabulary, deleteVocabulary, language, languageLabel }) {
   const [selectedWeek, setSelectedWeek] = useState('all');
 
   const weeks = [...new Set(vocabulary.map(v => v.week))].sort((a, b) => a - b);
@@ -39,14 +39,14 @@ function ViewVocabulary({ onNavigate, vocabulary, deleteVocabulary }) {
         <div className="table-header">
           <div>Uke</div>
           <div>Norsk</div>
-          <div>Engelsk</div>
+          <div>{languageLabel}</div>
           <div>Handling</div>
         </div>
         {filteredVocab.map((item, index) => (
           <div key={index} className="table-row">
             <div className="week-cell">{item.week}</div>
             <div className="norwegian-cell">{item.norwegian}</div>
-            <div className="english-cell">{item.english}</div>
+            <div className="english-cell">{item[language]}</div>
             <div className="action-cell">
               <button onClick={() => handleDelete(index)} className="delete-btn">
                 🗑️ Slett

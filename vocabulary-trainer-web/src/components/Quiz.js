@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Quiz.css';
 
-function Quiz({ onNavigate, vocabulary, username, saveScore }) {
+function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageLabel }) {
   const [quizConfig, setQuizConfig] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -26,8 +26,8 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
     }
 
     let quizQuestions = vocabForWeek.map(v => ({
-      question: direction === 'NO→EN' ? v.norwegian : v.english,
-      answer: direction === 'NO→EN' ? v.english : v.norwegian,
+      question: direction === 'NO→L2' ? v.norwegian : v[language],
+      answer: direction === 'NO→L2' ? v[language] : v.norwegian,
       direction
     }));
 
@@ -97,7 +97,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
       date: new Date().toISOString(),
       username,
       week: quizConfig.week,
-      direction: quizConfig.direction,
+      direction: quizConfig.direction === 'NO→L2' ? `Norsk → ${languageLabel}` : `${languageLabel} → Norsk`,
       totalQuestions: questions.length,
       correctAnswers: finalScore,
       percentage,
@@ -165,9 +165,9 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
 
           <div className="form-group">
             <label>Retning:</label>
-            <select id="direction-select" defaultValue="NO→EN">
-              <option value="NO→EN">Norsk → Engelsk</option>
-              <option value="EN→NO">Engelsk → Norsk</option>
+            <select id="direction-select" defaultValue="NO→L2">
+              <option value="NO→L2">Norsk → {languageLabel}</option>
+              <option value="L2→NO">{languageLabel} → Norsk</option>
             </select>
           </div>
 
@@ -201,7 +201,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
   return (
     <div className="quiz-active">
       <div className="quiz-header">
-        <h2>Quiz: {quizConfig.direction}</h2>
+        <h2>Quiz: {quizConfig.direction === 'NO→L2' ? `Norsk → ${languageLabel}` : `${languageLabel} → Norsk`}</h2>
         <div className="progress">
           Spørsmål {currentQuestion + 1} / {questions.length}
         </div>
@@ -248,6 +248,9 @@ function Quiz({ onNavigate, vocabulary, username, saveScore }) {
                 <span className="feedback-icon">❌</span>
                 <span>Feil. Riktig svar: {questions[currentQuestion].answer}</span>
                 <div className="continue-hint">Trykk Enter for å fortsette</div>
+                <button onClick={() => onNavigate('menu')} className="restart-button">
+                  🏠 Tilbake til start
+                </button>
               </>
             )}
           </div>
