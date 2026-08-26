@@ -31,9 +31,10 @@ const vocabularyByGrade = {
   { week: 35, norwegian: "roper", french: "crier" },
   { week: 35, norwegian: "to gonger", french: "deux fois" },
     ],
+    german: [],
   },
-  5: { english: [], french: [] },
-  6: { english: [], french: [] },
+  5: { english: [], french: [], german: [] },
+  6: { english: [], french: [], german: [] },
   7: {
     english: [
   { week: 39, norwegian: "kvinne", english: "female" },
@@ -310,6 +311,7 @@ const vocabularyByGrade = {
   { week: 23, norwegian: "panne", english: "forehead" },
     ],
     french: [],
+    german: [],
   },
   8: {
     english: [],
@@ -330,9 +332,10 @@ const vocabularyByGrade = {
   { week: 35, norwegian: "fjorten", french: "quatorze" },
   { week: 35, norwegian: "femten", french: "quinze" },
     ],
+    german: [],
   },
-  9: { english: [], french: [] },
-  10: { english: [], french: [] },
+  9: { english: [], french: [], german: [] },
+  10: { english: [], french: [], german: [] },
 };
 
 // Merge new/changed entries into each grade+language's storage without touching user-added words or scores

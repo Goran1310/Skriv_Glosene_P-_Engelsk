@@ -12,6 +12,7 @@ const DEFAULT_GRADE = 7;
 const LANGUAGES = [
   { id: 'english', label: 'Engelsk' },
   { id: 'french', label: 'Fransk' },
+  { id: 'german', label: 'Tysk' },
 ];
 const DEFAULT_LANGUAGE = 'english';
 
