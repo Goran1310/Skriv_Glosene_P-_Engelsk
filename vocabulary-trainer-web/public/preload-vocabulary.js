@@ -13,6 +13,11 @@ for (const grade of [4, 5, 6, 7, 8, 9, 10]) {
 const vocabularyByGrade = {
   4: {
     english: [
+  { week: 34, norwegian: "Kjemmer", english: "Comb" },
+  { week: 34, norwegian: "Travel", english: "Busy" },
+  { week: 34, norwegian: "Skundar oss", english: "Hurry" },
+  { week: 34, norwegian: "Sein/seint", english: "Late" },
+  { week: 34, norwegian: "Tidleg", english: "Early" },
   { week: 35, norwegian: "lag", english: "team" },
   { week: 35, norwegian: "øver", english: "practise" },
   { week: 35, norwegian: "ein gong", english: "once" },
