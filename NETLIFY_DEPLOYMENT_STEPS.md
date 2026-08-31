@@ -3,6 +3,19 @@
 ## Prerequisites
 Your React app is ready and committed to git! ✅
 
+## Mandatory Weekly Vocabulary Update Workflow
+
+For every new week of vocabulary data, deploy through the project script from the repository root. This is mandatory because Netlify production deploys from `main`; pushing only a feature branch will not update the live GUI.
+
+```powershell
+cd 'c:\Users\goran.lovincic\source\repos\Skriv_Glosene_På_Engelsk'
+.\deploy.ps1 -Message "Add grade 4 week 36 vocabulary"
+```
+
+The script builds the React app, commits the update, pushes the current branch, merges it into `main`, and pushes `main` to trigger Netlify.
+
+After Netlify finishes, refresh the live app. If the browser still shows old weeks, clear `vocabulary_grade4_english` from Local Storage and refresh again.
+
 ## Option 1: Deploy via Netlify Dashboard (Easiest)
 
 ### Step 1: Create GitHub Repository
