@@ -54,14 +54,8 @@ if ([string]::IsNullOrWhiteSpace($status)) {
 }
 Write-Host "Changes committed" -ForegroundColor Green
 
-# Step 4: Push the source branch, then merge into production branch if needed
+# Step 4: Merge the source branch into production before pushing
 Write-Host "`n[4/5] Preparing production branch $ProductionBranch..." -ForegroundColor Yellow
-git push -u origin $SourceBranch
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "Push failed for $SourceBranch!" -ForegroundColor Red
-    exit 1
-}
-
 if ($SourceBranch -ne $ProductionBranch) {
     git fetch origin $ProductionBranch
     git checkout $ProductionBranch

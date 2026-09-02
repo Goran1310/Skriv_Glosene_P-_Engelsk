@@ -5,14 +5,14 @@ Your React app is ready and committed to git! ✅
 
 ## Mandatory Weekly Vocabulary Update Workflow
 
-For every new week of vocabulary data, deploy through the project script from the repository root. This is mandatory because Netlify production deploys from `main`; pushing only a feature branch will not update the live GUI.
+For every new week of vocabulary data, deploy through the project script from the repository root. This is mandatory because Netlify production deploys from `main`; pushing only a feature branch will not update the live GUI. A repository pre-push guard blocks direct pushes that contain vocabulary-data changes.
 
 ```powershell
 cd 'c:\Users\goran.lovincic\source\repos\Skriv_Glosene_På_Engelsk'
 .\deploy.ps1 -Message "Add grade 4 week 36 vocabulary"
 ```
 
-The script builds the React app, commits the update, pushes the current branch, merges it into `main`, and pushes `main` to trigger Netlify.
+The script builds the React app, commits the update, merges it into `main`, and pushes `main` to trigger Netlify. After cloning the repository, activate the guard once with `./scripts/install-git-hooks.ps1`.
 
 After Netlify finishes, refresh the live app. If the browser still shows old weeks, clear `vocabulary_grade4_english` from Local Storage and refresh again.
 
