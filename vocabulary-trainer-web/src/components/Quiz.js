@@ -1,6 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Quiz.css';
 
+export function normalizeAnswer(text) {
+  return text
+    .normalize('NFKC')
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase()
+    .replace(/[\u0027\u0060\u00B4\u0301\u2018\u2019\u201B\u02BB\u02BC\u2032\u2035\uFF07]/g, "'")
+    .replace(/\s+'\s*/g, "'");
+}
+
 function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageLabel }) {
   const [quizConfig, setQuizConfig] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -50,8 +60,8 @@ function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageL
   };
 
   const checkAnswer = () => {
-    const correct = userAnswer.trim().toLowerCase() === 
-                    questions[currentQuestion].answer.toLowerCase();
+    const correct = normalizeAnswer(userAnswer) ===
+                    normalizeAnswer(questions[currentQuestion].answer);
     
     setIsCorrect(correct);
     setShowFeedback(true);
