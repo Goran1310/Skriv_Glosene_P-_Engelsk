@@ -351,6 +351,20 @@ const vocabularyByGrade = {
   { week: 35, norwegian: "tretten", french: "treize" },
   { week: 35, norwegian: "fjorten", french: "quatorze" },
   { week: 35, norwegian: "femten", french: "quinze" },
+  
+  { week: 36, norwegian: "fransk", french: "français" },
+  { week: 36, norwegian: "eg bur", french: "j'habite" },
+  { week: 36, norwegian: "engelsk", french: "anglais" },
+  { week: 36, norwegian: "norsk", french: "norvégien" },
+  { week: 36, norwegian: "eg har", french: "j'ai" },
+  { week: 36, norwegian: "eg er...år", french: "j'ai...ans" },
+  { week: 36, norwegian: "eg er", french: "je suis" },
+  { week: 36, norwegian: "leilighet", french: "appartement" },
+  { week: 36, norwegian: "hund", french: "chien" },
+  { week: 36, norwegian: "eg likar", french: "j'aime" },
+
+
+
     ],
     german: [],
   },
