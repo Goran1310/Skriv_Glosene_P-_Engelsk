@@ -22,6 +22,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageL
   const [startTime, setStartTime] = useState(null);
   const [quizFinished, setQuizFinished] = useState(false);
   const inputRef = useRef(null);
+  const advanceTimeoutRef = useRef(null);
 
   const weeks = [...new Set(vocabulary.map(v => v.week))].sort((a, b) => a - b);
 
@@ -69,7 +70,7 @@ function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageL
     if (correct) {
       setCorrectAnswers(correctAnswers + 1);
       // Auto-advance only for correct answers
-      setTimeout(() => {
+      advanceTimeoutRef.current = setTimeout(() => {
         if (currentQuestion < questions.length - 1) {
           setCurrentQuestion(currentQuestion + 1);
           setUserAnswer('');
@@ -79,6 +80,20 @@ function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageL
         }
       }, 1500);
     }
+  };
+
+  const returnToQuizSetup = () => {
+    clearTimeout(advanceTimeoutRef.current);
+    advanceTimeoutRef.current = null;
+    setQuizConfig(null);
+    setQuestions([]);
+    setCurrentQuestion(0);
+    setUserAnswer('');
+    setCorrectAnswers(0);
+    setShowFeedback(false);
+    setIsCorrect(false);
+    setStartTime(null);
+    setQuizFinished(false);
   };
 
   const moveToNextQuestion = () => {
@@ -270,6 +285,9 @@ function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageL
       <div className="quiz-score">
         Poeng: {correctAnswers} / {currentQuestion + (showFeedback ? 1 : 0)}
       </div>
+      <button onClick={returnToQuizSetup} className="back-button">
+        📝 Quiz Oppsett
+      </button>
     </div>
   );
 }
