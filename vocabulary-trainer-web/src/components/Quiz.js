@@ -176,6 +176,9 @@ function Quiz({ onNavigate, vocabulary, username, saveScore, language, languageL
     return (
       <div className="quiz-setup">
         <h1>📝 Quiz Oppsett</h1>
+        <p className="quiz-setup-subtitle">
+          Øv godt på glosene - det blir glosetest på fredag.
+        </p>
         
         <div className="setup-form">
           <div className="form-group">

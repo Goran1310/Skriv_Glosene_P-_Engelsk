@@ -4,6 +4,43 @@
   padding: 20px;
 }
 
+.quiz-setup h1 {
+  margin-bottom: 12px;
+}
+
+.quiz-setup-subtitle {
+  margin: 0 auto 24px;
+  padding: 14px 18px;
+  border-left: 5px solid #4A90E2;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f7fbff, #e8f4f8);
+  box-shadow: 0 4px 12px rgba(46, 82, 102, 0.12);
+  color: #2E5266;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 1.45;
+  text-align: center;
+  animation: quiz-setup-subtitle-in 0.55s ease-out both;
+}
+
+@keyframes quiz-setup-subtitle-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-setup-subtitle {
+    animation: none;
+  }
+}
+
 .setup-form {
   background-color: white;
   padding: 30px;

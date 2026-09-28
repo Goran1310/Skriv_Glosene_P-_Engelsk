@@ -50,3 +50,20 @@ test('returns directly from an active quiz to Quiz Oppsett', () => {
 
   expect(screen.getByRole('heading', { name: /quiz oppsett/i })).toBeInTheDocument();
 });
+
+test('renders the Quiz Oppsett subtitle', () => {
+  render(
+    <Quiz
+      onNavigate={jest.fn()}
+      vocabulary={[]}
+      username="Test"
+      saveScore={jest.fn()}
+      language="english"
+      languageLabel="Engelsk"
+    />
+  );
+
+  expect(
+    screen.getByText('Øv godt på glosene - det blir glosetest på fredag.')
+  ).toBeInTheDocument();
+});
