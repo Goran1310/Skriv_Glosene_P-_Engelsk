@@ -48,6 +48,13 @@ const vocabularyByGrade = {
   { week: 39, norwegian: "Vinter", english: "Winter" },
   { week: 39, norwegian: "Vår", english: "Spring" },
   { week: 39, norwegian: "Sommar", english: "Summer" },
+
+  
+  { week: 40, norwegian: "Utandørs", english: "Outdoors" },
+  { week: 40, norwegian: "Favoritt", english: "Favourite" },
+  { week: 40, norwegian: "Forskjellige", english: "Different" },
+  { week: 40, norwegian: "Trøytt", english: "Tired" },
+  { week: 40, norwegian: "Deg sjølv", english: "Yourself" },
     ],
     french: [],
     german: [],

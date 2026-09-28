@@ -1,3 +1,15 @@
+Root cause found and fixed
+Issue: Netlify's build is configured to deploy from the main branch (that's the routine deploy.ps1 follows), but recent commits were pushed only to feat/grade-4-week-34. Since that branch was never merged into main, Netlify had nothing new to build.
+
+Fix applied: Fast-forward merged feat/grade-4-week-34 into main and pushed — main now at 5fa6d1f, matching your feature branch. This will trigger a fresh Netlify deploy.
+
+Permanent routine going forward:
+
+Always run deploy.ps1 after committing — it builds, commits, merges the current branch into main, and pushes main, which is what actually triggers Netlify.
+Alternative: just remember that Netlify only watches main, so any feature-branch commit needs an explicit merge+push to main before it goes live.
+
+
+
 # Vocabulary Trainer 
 ## Add new on this location
 
