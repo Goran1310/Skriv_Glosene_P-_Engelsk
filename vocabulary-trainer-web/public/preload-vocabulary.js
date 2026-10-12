@@ -55,6 +55,13 @@ const vocabularyByGrade = {
   { week: 40, norwegian: "Forskjellige", english: "Different" },
   { week: 40, norwegian: "Trøytt", english: "Tired" },
   { week: 40, norwegian: "Deg sjølv", english: "Yourself" },
+
+  { week: 42, norwegian: "Hekser", english: "Witches" },
+  { week: 42, norwegian: "Stein", english: "Stone" },
+  { week: 42, norwegian: "Redd", english: "Scared" },
+  { week: 42, norwegian: "Skummel", english: "Scary" },
+  { week: 42, norwegian: "Tryllestav", english: "Wand" },
+      
     ],
     french: [],
     german: [],
