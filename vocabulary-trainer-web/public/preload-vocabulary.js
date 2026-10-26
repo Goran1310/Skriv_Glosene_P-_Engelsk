@@ -65,6 +65,11 @@ const vocabularyByGrade = {
   { week: 43, norwegian: "Drake", english: "Dragon" },
   { week: 43, norwegian: "Spøkelse", english: "Ghost" },
   { week: 43, norwegian: "Modig", english: "Brave" },
+  { week: 44, norwegian: "Finne", english: "Find" },
+  { week: 44, norwegian: "Kvar", english: "Where" },
+  { week: 44, norwegian: "Skei", english: "Spoon" },
+  { week: 44, norwegian: "Kniv", english: "Knife" },
+  { week: 44, norwegian: "Gaffel", english: "Fork" },
       
     ],
     french: [],
