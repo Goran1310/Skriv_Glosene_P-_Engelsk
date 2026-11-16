@@ -70,13 +70,16 @@ const vocabularyByGrade = {
   { week: 44, norwegian: "Skei", english: "Spoon" },
   { week: 44, norwegian: "Kniv", english: "Knife" },
   { week: 44, norwegian: "Gaffel", english: "Fork" },
-
   { week: 45, norwegian: "Feirar", english: "Celebrate" },
   { week: 45, norwegian: "Kostyme", english: "Costumes" },
   { week: 45, norwegian: "Graskar", english: "Pumpkin" },
   { week: 45, norwegian: "Kle seg ut", english: "Dress up" },
   { week: 45, norwegian: "Gater", english: "Streets" },
-      
+  { week: 47, norwegian: "Skuletur", english: "Field trip" },
+  { week: 47, norwegian: "Pengar", english: "Money" },
+  { week: 47, norwegian: "Forskjellige", english: "Different" },
+  { week: 47, norwegian: "Trommer", english: "Drums" },
+  { week: 47, norwegian: "Nokon", english: "Anyone" },
       
       
     ],
